@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 120vh;
+  padding: 5%;
+  background-image: linear-gradient(rgba(45, 26, 53, 0.7),rgba(0,8,51,0.7)), url(Components/UI/BackgroundImg.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
