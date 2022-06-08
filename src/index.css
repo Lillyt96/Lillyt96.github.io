@@ -7,7 +7,7 @@
 
 body {
   width: 100%;
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 5%;
   background-image: linear-gradient(rgba(45, 26, 53, 0.7),rgba(0,8,51,0.7)), url(Components/UI/BackgroundImg.png);
   background-position: center;

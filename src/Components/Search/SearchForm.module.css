@@ -16,16 +16,13 @@
   outline: none;
   padding: 24px 60px;
   font-size: 20px;
-  color: #1d1c33;
+  color: #e6e4ff;
 }
 
 ::placeholder {
-  color:black;
+  color: #e6e4ff;
 }
 
-.searchBar button img {
-  width: 30px;
-}
 
 .searchBar button {
   border: 0;

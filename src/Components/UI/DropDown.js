@@ -1,4 +1,5 @@
 import React, {useRef} from "react";
+import classes from "./DropDown.module.css"
 
 const DropDown = (props) => {
     const regionInputRef = useRef();
@@ -10,7 +11,7 @@ const DropDown = (props) => {
 
   }
   return (
-    <select ref={regionInputRef} onChange={setRegionData} >
+    <select ref={regionInputRef} onChange={setRegionData} className={classes.dropDown}>
       <option value="Russia">
         RU
       </option>
