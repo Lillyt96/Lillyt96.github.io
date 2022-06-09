@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchForm from "./Components/Search/SearchForm";
-import getOpggUrl from "./Components/Search/RetrieveData";
+import PlayersList from "./Components/Player/PlayerList";
 
-function App() {
-  console.log(getOpggUrl("5he", "RGAPI-cc590900-ec25-4b9e-bc88-1dfe6507eba2"))
+
+const App = () => {
+  const [playerData, setPlayerData] = useState();
+
+  const onSearchHandler = (retrievedPlayerData) => {
+    setPlayerData(retrievedPlayerData)
+    return playerData;
+  }
+
   return (
     <div>
-      <SearchForm />
+      <SearchForm onSearch={onSearchHandler}/>
+      <PlayersList items={playerData} />
     </div>
   );
 }
