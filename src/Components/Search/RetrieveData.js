@@ -1,5 +1,8 @@
+
+
 const  RetrieveData = async (summonerName, enteredRegion) => {
-    const riotAPIKey = "RGAPI-4f8f6639-9efb-4626-8e66-11deef3fc61b";
+    const riotAPIKey = "RGAPI-d57c4750-36c1-4399-a0ed-ba00cb87d481";
+
 
 
     //Get summoner ID
@@ -9,10 +12,12 @@ const  RetrieveData = async (summonerName, enteredRegion) => {
         accept: {
           "Content-Type": "application/json",
         },
-      }
-    )
+      });
+    
     let summonerId = (await summonerIdResponse.json())["id"];
-    console.log(summonerId);
+    
+
+
 
       //Get clash team ID
     const teamIdResponse = await fetch(
@@ -23,9 +28,8 @@ const  RetrieveData = async (summonerName, enteredRegion) => {
           },
         }
       )
-
       let teamId = (await teamIdResponse.json())[0]["teamId"];
-      console.log(teamId);
+
 
       //Get clash team plays summoner ID
       const teamMembersResponse = await fetch(
@@ -71,6 +75,7 @@ const  RetrieveData = async (summonerName, enteredRegion) => {
       };
       
       return playerDict;
+
 
 
   };

@@ -1,23 +1,27 @@
 import PlayerItem from "./PlayerItem";
+import classes from "./PlayerList.module.css";
 
 const PlayerList = (props) => {
-  let results = props.items;
-
-  console.log(results)
-  // return (
-  //   <ul>
-  //     {console.log(props.items)}
-  //     {/* {props.items.map((player) => (
-  //       <PlayerItem
-  //         key={player.id}
-  //         name={player.name}
-  //         link={player.link}
-  //         rank={player.rank}
-  //         winRate={player.winRate}
-  //       />
-  //     ))} */}
-  //   </ul>
-  // );
+  return (
+    <>
+      {props.items.userData !== undefined && (
+        <div className={classes.card}>
+          <ul>
+            {props.items.userData.map((player) => (
+              <PlayerItem
+                key={Math.random()}
+                name={player.name}
+                position={player.position}
+                // link={player.link}
+                rank="rank"
+                winRate="WR"
+              />
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default PlayerList;
