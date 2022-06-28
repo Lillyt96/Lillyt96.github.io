@@ -1,14 +1,14 @@
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 import SearchForm from "./Components/Search/SearchForm";
 import PlayersList from "./Components/Player/PlayerList";
 
 
 const App = () => {
-  const [playerData, setPlayerData] = useState("");
+  const [playerDict, setPlayersDict] = useState("");
 
-  const onSearchHandler = (retrievedPlayerData) => {
-    setPlayerData(retrievedPlayerData)
-    return playerData;
+  const onSearchHandler = (retrievedPlayersData) => {
+    setPlayersDict(retrievedPlayersData)
+    return playerDict;
   }
 
   
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div>
       <SearchForm onSearch={onSearchHandler}/>
-      <PlayersList items={playerData} />
+      <PlayersList items={playerDict} />
     </div>
   );
 }

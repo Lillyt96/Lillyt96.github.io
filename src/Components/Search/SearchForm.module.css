@@ -23,7 +23,6 @@
   color: #e6e4ff;
 }
 
-
 .searchBar button {
   border: 0;
   border-radius: 50%;
@@ -33,3 +32,14 @@
   cursor: pointer;
 }
 
+.loading {
+  text-align: center;
+  color: #e6e4ff;
+  font-size: 18px;
+  align-items: center;
+  padding: 1rem;
+  text-shadow: 2px 2px #3030308a;
+  
+  
+
+}
