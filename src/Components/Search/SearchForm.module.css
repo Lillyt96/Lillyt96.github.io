@@ -5,18 +5,20 @@
   display: flex;
   align-items: center;
   border-radius: 60px;
-  padding:10px 20px;
   backdrop-filter:blur(4px) saturate(180%);
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px
 }
 
 .searchBar input {
   background: transparent;
-  flex: 1;
   border: 0;
   outline: none;
-  padding: 24px 60px;
   font-size: 20px;
   color: #e6e4ff;
+  padding: 10px 50px;
+  max-width: 320px
 }
 
 ::placeholder {
@@ -38,8 +40,20 @@
   font-size: 18px;
   align-items: center;
   padding: 1rem;
-  text-shadow: 2px 2px #3030308a;
-  
+}
+
+.exampleSearch {
+  background-color: rgba(231, 231, 231, 0.856);
+  font-size: 20px;
+  color: rgb(108, 82, 160);
+  padding: 5px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 1rem;
+
+
   
 
 }

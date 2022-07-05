@@ -1,23 +1,32 @@
 import classes from "./DropDown.module.css";
 
+
+const regions = [
+  { value: "DEFAULT", label: "Select a region" },
+  { value: "RU", label: "RU" },
+  { value: "TR1", label: "TR" },
+  { value: "OC1", label: "OCE" },
+  { value: "BR1", label: "BR" },
+  { value: "LA2", label: "LAS" },
+  { value: "EUN1", label: "EUNE" },
+  { value: "EUW1", label: "EUW" },
+  { value: "NA1", label: "NA" },
+  { value: "KR", label: "KR" },
+  { value: "LA1", label: "LAN" },
+];
+
 const DropDown = (props) => {
   return (
     <select
       value={props.selectedRegion}
-      onChange={(event) => {props.onSaveRegionData(event.target.value)}}
+      onChange={(event) => {
+        props.onSaveRegionData(event.target.value);
+      }}
       className={classes.dropDown}
     >
-      <option value="DEFAULT" disabled>Select a region</option>
-      <option value="RU">RU</option>
-      <option value="TR1">TR</option>
-      <option value="OC1">OCE</option>
-      <option value="BR1">BR</option>
-      <option value="LA2">LAS</option>
-      <option value="EUN1">EUNE</option>
-      <option value="EUW1">EUW</option>
-      <option value="NA1">NA</option>
-      <option value="KR">KR</option>
-      <option value="LA1">LAN</option>
+      {regions.map((item, index) => {
+        return(<option key={index} value={item.value}>{item.label}</option>);
+      })}
     </select>
   );
 };
