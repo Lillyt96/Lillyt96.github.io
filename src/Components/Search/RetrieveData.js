@@ -22,7 +22,7 @@ const findTopValue = (obj, topN) => {
 };
 
 const RetrieveData = async (enteredSummonerName, enteredRegion) => {
-  const riotAPIKey = "RGAPI-bf693b44-3287-4eef-8ba8-194c8a7124ae";
+  const riotAPIKey = "RGAPI-54e1ba63-0bd4-4209-a740-6508747f635b";
   const numbOfGames = 15;
 
   //Get summoner ID

@@ -177,34 +177,57 @@ const ClashSchedule = (props) => {
       grouped[nameKey].push(item)
       return grouped
   }, {})
+  console.log(groupedScheduleData);
 
   const getDate = (input) => {
       let date = new Date(input)
       return date.toDateString();
   }
 
-  return (
-    <div>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Day</th>
-          <th>Date</th>
-        </tr>
-        {scheduleData.map((val, key) => {
-          return (
-            <tr key={key}>
-              <td>{val.nameKey}</td>
-              <td>{val.nameKeySecondary}</td>
-              <td>
-                {getDate(val.schedule[0].startTime)}
-              </td>
-            </tr>
-          );
-        })}
-      </table>
-    </div>
-  );
+//   return (
+//     <div>
+//       <table>
+//         <tr>
+//           <th>Name</th>
+//           <th>Day</th>
+//           <th>Date</th>
+//         </tr>
+//         {scheduleData.map((val, key) => {
+//           return (
+//             <tr key={key}>
+//               <td>{val.nameKey}</td>
+//               <td>{val.nameKeySecondary}</td>
+//               <td>
+//                 {getDate(val.schedule[0].startTime)}
+//               </td>
+//             </tr>
+//           );
+//         })}
+//       </table>
+//     </div>
+//   );
+// };
+
+
+return (
+  <div>
+    {Object.keys(groupedScheduleData).map((val) => 
+      (
+        <> 
+        <div> {val} </div>
+        <ul> {groupedScheduleData[val].map((val, i) => 
+        (
+          <li key={i}>
+            {getDate(val.schedule[0].startTime)}
+          </li>
+        ))} </ul>
+        </>
+
+      )
+    )}
+    {}
+  </div>
+);
 };
 
 export default ClashSchedule;
