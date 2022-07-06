@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchForm from "./Components/Search/SearchForm";
 import PlayersList from "./Components/Player/PlayerList";
-
+import ClashSchedule from "./Components/ClashSchedule/ClashSchedule"
 
 const App = () => {
   const [playerDict, setPlayersDict] = useState("");
@@ -15,6 +15,7 @@ const App = () => {
 
   return (
     <div>
+      <ClashSchedule />
       <SearchForm onSearch={onSearchHandler}/>
       <PlayersList items={playerDict} />
     </div>
