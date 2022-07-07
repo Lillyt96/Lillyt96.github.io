@@ -1,0 +1,16 @@
+.clashSchedule {
+    display: flex;
+    flex-direction: column;
+}
+
+.clashScheduleList {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.clashScheduleList ul{
+    list-style: none;
+    margin: 10px
+}
