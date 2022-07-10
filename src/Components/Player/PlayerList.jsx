@@ -10,9 +10,9 @@ const PlayerList = (props) => {
         <div className={classes.card}>
           <a className={classes.opgg} target="_blank" rel="noopener noreferrer" href={props.items.opggURL}>Opgg link to detailed player information</a>
           <ul>
-            {props.items.playersData.map((player) => (
+            {props.items.playersData.map((player, i) => (
               <PlayerItem
-                key={Math.random()}
+                key={i}
                 name={player.name}
                 position={player.position}
                 gamesNumb={player.gamesNumb}

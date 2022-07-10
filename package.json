@@ -7,7 +7,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "node-modules": "^1.0.1",
     "react": "^18.0.0",
     "react-bootstrap": "^2.4.0",
@@ -17,7 +22,8 @@
     "react-spinners": "^0.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:backend": "node index.js",
+    "start:frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

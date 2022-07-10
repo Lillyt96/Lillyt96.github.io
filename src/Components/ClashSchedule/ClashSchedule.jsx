@@ -1,5 +1,6 @@
-import classes from "./ClashSchedule.module.css"
-
+import classes from "./ClashSchedule.module.css";
+import DropDown from "../UI/DropDown";
+import React, { useState } from "react";
 
 const ClashSchedule = (props) => {
   const scheduleData = [
@@ -173,47 +174,63 @@ const ClashSchedule = (props) => {
     },
   ];
 
+  const [selectedRegion, setRegion] = useState("DEFAULT");
+
+  const saveRegionDataHandler = (data) => {
+    setRegion(data);
+  };
+
   const groupedScheduleData = scheduleData.reduce((grouped, item) => {
-    const nameKey = item.nameKey
+    const nameKey = item.nameKey;
     if (grouped[nameKey] == null) {
-      grouped[nameKey] = []
+      grouped[nameKey] = [];
     }
-    grouped[nameKey].push(item)
-    return grouped
-  }, {})
+    grouped[nameKey].push(item);
+    return grouped;
+  }, {});
   console.log(groupedScheduleData);
 
   const getDate = (input) => {
-    let date = new Date(input)
+    let date = new Date(input);
     return date.toDateString();
-  }
+  };
 
   return (
-    <div className={classes.clashSchedule} >
-      {Object.keys(groupedScheduleData).map((val) =>
-      (
-        <div className={classes.clashScheduleList}>
-          <div> {val} </div>
-          <ul className>{groupedScheduleData[val].map((val, i) =>
-          (
-            <li key={i}>
-              {val.nameKeySecondary}
-            </li>
-          ))}
-          </ul>
-          <ul> {groupedScheduleData[val].map((val, i) =>
-          (
-            <li key={i}>
-              {getDate(val.schedule[0].startTime)}
-            </li>
-          ))} </ul>
-
+    <>
+      {selectedRegion === "DEFAULT" ? (
+        <div className={classes.headerBar}>
+          Select a region to diplay the clash schedule
         </div>
-
-      )
+      ) : (
+        <div className={classes.clashSchedule}>
+          {" "}
+          {`Clash schedule for ${selectedRegion}`}
+          <div>name, week, date</div>
+          {Object.keys(groupedScheduleData).map((val) => (
+            <div className={classes.clashScheduleList}>
+              <h4> {val} </h4>
+              <ul>
+                {groupedScheduleData[val]
+                  .sort((a, b) =>
+                    a.schedule[0].startTime > b.schedule[0].startTime ? 1 : -1
+                  )
+                  .map((val, i) => (
+                    <li key={i}>
+                      {`Day ${i + 1}: `}
+                      {getDate(val.schedule[0].startTime)}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+          {}
+        </div>
       )}
-      { }
-    </div>
+      <DropDown
+        onSaveRegionData={saveRegionDataHandler}
+        selectedRegion={selectedRegion}
+      />
+    </>
   );
 };
 

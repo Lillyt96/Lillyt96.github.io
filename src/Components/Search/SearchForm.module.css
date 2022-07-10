@@ -8,7 +8,8 @@
   backdrop-filter:blur(4px) saturate(180%);
   flex-wrap: wrap;
   justify-content: center;
-  padding: 10px
+  padding: 10px;
+  margin-bottom:10px;
 }
 
 .searchBar input {
@@ -43,17 +44,29 @@
 }
 
 .exampleSearch {
-  background-color: rgba(231, 231, 231, 0.856);
-  font-size: 20px;
-  color: rgb(108, 82, 160);
-  padding: 5px;
-  border-radius: 2px;
   display: flex;
   align-items: center;
+  background-color:  rgba(255, 255, 255, 0.856);
+  border-radius:10%;
+  box-shadow: 1px 1px 5px rgb(46, 46, 46);
+  border:none;
   margin: auto;
-  margin-bottom: 1rem;
+  padding: 5px;
+  font-size:medium;
+}
 
+.schedule {
+  display:flex;
+  width: 250px;
+  background-color:  rgba(255, 255, 255, 0.856);
+  border-radius:5%;
+  box-shadow: 1px 1px 5px rgb(46, 46, 46);
+  margin: 10px;
+  padding: 5px;
+  align-items: center;
+}
 
-  
-
+.schedule p{
+  width: 85%;
+  padding-left: 10px;
 }
