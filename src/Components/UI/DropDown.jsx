@@ -1,6 +1,5 @@
 import classes from "./DropDown.module.css";
 
-
 const regions = [
   { value: "DEFAULT", label: "Select a region" },
   { value: "RU", label: "RU" },
@@ -18,14 +17,17 @@ const regions = [
 const DropDown = (props) => {
   return (
     <select
+      // Sets value as selectedRegion from searchForm
       value={props.selectedRegion}
+
+      // Forwards selectedRegion to searchForm
       onChange={(event) => {
         props.onSaveRegionData(event.target.value);
       }}
       className={classes.dropDown}
     >
       {regions.map((item, index) => {
-        return(<option key={index} value={item.value}>{item.label}</option>);
+        return (<option key={index} value={item.value}>{item.label}</option>);
       })}
     </select>
   );

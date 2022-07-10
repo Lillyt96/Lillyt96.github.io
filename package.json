@@ -22,8 +22,7 @@
     "react-spinners": "^0.12.0"
   },
   "scripts": {
-    "start:backend": "node index.js",
-    "start:frontend": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

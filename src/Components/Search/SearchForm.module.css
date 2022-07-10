@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   background-color:  rgba(255, 255, 255, 0.856);
-  border-radius:10%;
+  border-radius:5px 5px;
   box-shadow: 1px 1px 5px rgb(46, 46, 46);
   border:none;
   margin: auto;
@@ -59,7 +59,7 @@
   display:flex;
   width: 250px;
   background-color:  rgba(255, 255, 255, 0.856);
-  border-radius:5%;
+  border-radius:5px 5px;
   box-shadow: 1px 1px 5px rgb(46, 46, 46);
   margin: 10px;
   padding: 5px;
