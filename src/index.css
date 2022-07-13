@@ -9,7 +9,7 @@ body {
   width: auto;
   min-height: 100vh;
   padding: 5%;
-  background-image: linear-gradient(rgba(45, 26, 53, 0.7),rgba(0,8,51,0.7)), url(Components/UI/BackgroundImg.png);
+  background-image: linear-gradient(rgba(45, 26, 53, 0.7),rgba(0,8,51,0.7)), url(Components/UI/StaticInputData/BackgroundImg.png);
   background-position: center;
   background-size: cover;
   display: flex;

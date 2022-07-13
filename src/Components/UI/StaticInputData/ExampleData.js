@@ -77,6 +77,8 @@ const playerDict = {
     ],
     opggURL:
       "https://oce.op.gg/multi/query=Haunter%2Cp005474n%2C5he%2CHachimitsu%2C",
+    
+    clashTeam: true
   };
 
 export default playerDict;

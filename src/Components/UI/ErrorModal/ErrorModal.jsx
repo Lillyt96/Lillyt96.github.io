@@ -24,7 +24,7 @@ const ModalOverlay = (props) => {
 
 const ErrorModal = (props) => {
   return (
-    <React.Fragment>
+    <>
       {ReactDOM.createPortal(
         <Backdrop onClick={props.onClick} />,
         document.getElementById("backdrop-root")
@@ -37,7 +37,7 @@ const ErrorModal = (props) => {
         />,
         document.getElementById("overlay-root")
       )}
-    </React.Fragment>
+    </>
   );
 };
 

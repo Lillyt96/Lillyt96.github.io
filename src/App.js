@@ -5,8 +5,7 @@ import PlayersList from "./Components/Player/PlayerList";
 const App = () => {
   const [playerDict, setPlayerDict] = useState("");
   const onSearchHandler = (retrievedPlayersData) => {
-    setPlayerDict(retrievedPlayersData)
-    console.log(playerDict);
+    setPlayerDict(retrievedPlayersData);
     return playerDict;
   }
 

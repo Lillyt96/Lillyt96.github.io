@@ -1,3 +1,6 @@
+import regions from "../UI/StaticInputData/RegionData";
+import RegionData from "../UI/StaticInputData/RegionData"
+
 // Finds the top occuring key in an object
 const findTopValue = (obj, topN) => {
   let topObj = {};
@@ -22,6 +25,9 @@ const findTopValue = (obj, topN) => {
   return topArr;
 };
 
+const retrieveRegionIndex = (enteredLabel) => {
+  return RegionData.findIndex(RegionData => RegionData.value === enteredLabel)
+}
 
 export const RetrieveScheduleData = async (enteredRegion) => {
   /* API CALL - retrieves upcoming clash schedule
@@ -145,6 +151,7 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
       summonerRank = "Unranked";
       summonerWR = "N/A"
     }
+
     else 
     {
     let rankedIndex = summonerRankInfo.findIndex((element) => element["queueType"] === "RANKED_SOLO_5x5");
@@ -159,7 +166,7 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
     /* API CALL - retrieves past n matche ids
     Inputs: enteredRegion, summonerPuuid, numbOfGames*/
     const summonerMatchesResponse = await fetch(
-      `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerPuuid}/ids?type=ranked&start=0&count=${numbOfGames}&api_key=${process.env.REACT_APP_API_KEY}`,
+      `https://${regions[retrieveRegionIndex(enteredRegion)].broadRegion}.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerPuuid}/ids?type=ranked&start=0&count=${numbOfGames}&api_key=${process.env.REACT_APP_API_KEY}`,
       {
         accept: {
           "Content-Type": "application/json",
@@ -170,7 +177,6 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
     let summonerMatches = await summonerMatchesResponse.json();
 
     // Initalise match detail objects
-    let winRate = { WIN: 0, LOSS: 0 };
     let roleCounterObj = {};
     let championPoolObj = {};
 
@@ -180,7 +186,7 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
     LIMITATION: only working for Americas servers*/
     for (let match of summonerMatches) {
       const summonerMatchInfoResponse = await fetch(
-        `https://americas.api.riotgames.com/lol/match/v5/matches/${match}?api_key=${process.env.REACT_APP_API_KEY}`,
+        `https://${regions[retrieveRegionIndex(enteredRegion)].broadRegion}.api.riotgames.com/lol/match/v5/matches/${match}?api_key=${process.env.REACT_APP_API_KEY}`,
         {
           accept: {
             "Content-Type": "application/json",
@@ -205,12 +211,6 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
             ];
           } else {
             roleCounterObj[participant["individualPosition"]] = 1;
-          }
-          // Extract win rate. Structure "champion": counter (int)
-          if (participant["win"]) {
-            winRate.WIN = ++winRate["WIN"];
-          } else if (!participant["win"]) {
-            winRate.LOSS = ++winRate["LOSS"];
           }
 
           // Extract most played champions. Structure "champion": counter (int)
@@ -243,7 +243,7 @@ export const RetrieveTeamData = async (enteredSummonerName, enteredRegion) => {
 
     /* Collate opgg URL for the team
     LIMITATION - currently only works for OCE*/
-    let opggURL = "https://oce.op.gg/multi/query=";
+    let opggURL = `https://${regions[retrieveRegionIndex(enteredRegion)].label}.op.gg/multi/query=`;
 
     for (player of playersData) {
       let playerFormatted = player['name'].replace(" ", "%20");

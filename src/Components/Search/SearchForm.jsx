@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import DropDown from "../UI/DropDown";
-import ErrorModal from "../UI/ErrorModal";
+import DropDown from "../UI/DropDown/DropDown";
+import ErrorModal from "../UI/ErrorModal/ErrorModal";
 import classes from "./SearchForm.module.css";
 import { IconContext } from "react-icons";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { RetrieveTeamData, RetrieveScheduleData } from "./RetrieveData";
 import ClipLoader from "react-spinners/ClipLoader";
-import ExamplePlayerDict from "./ExampleData";
+import ExamplePlayerDict from "../UI/StaticInputData/ExampleData";
 
 const SearchForm = (props) => {
 
@@ -47,7 +47,7 @@ const SearchForm = (props) => {
     if (summonerName.trim().length === 0 || selectedRegion === "DEFAULT") {
       setError({
         title: "Invalid entry",
-        message: "Please select a region and/or enter a sumoner name",
+        message: "Please select a region and/or enter a summoner name",
       });
       return;
     }
@@ -59,7 +59,6 @@ const SearchForm = (props) => {
     let save = await RetrieveTeamData(summonerName, selectedRegion).catch(
       (error) => error
     );
-    console.log(save);
 
     // setLoading to false to remove loading wheel
     setLoading(false);
@@ -76,6 +75,12 @@ const SearchForm = (props) => {
         setError({
           title: "Invalid Team",
           message: "No clash team exists for this summoner.",
+        });
+      }
+      else {
+        setError({
+          title: "Error fetching data",
+          message: "There was a problem fetching.",
         });
       }
       return;
@@ -132,7 +137,6 @@ const SearchForm = (props) => {
             onSaveRegionData={saveRegionDataHandler}
             selectedRegion={selectedRegion}
           />
-          <label htmlFor="Summoner" />
           <input
             id="summoner"
             type="text"

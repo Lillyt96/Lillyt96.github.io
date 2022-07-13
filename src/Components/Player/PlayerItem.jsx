@@ -15,7 +15,7 @@ const PlayerItem = (props) => {
           <ul>
             {props.mainRole.map((mainRole, i) => (
               <li key={i}>
-                <img src={require(`../UI/LaneIcons/${mainRole[0]}.png`)} alt="icon" />
+                <img src={require(`../UI/StaticInputData/LaneIcons/${mainRole[0]}.png`)} alt="icon" />
                 {`${mainRole[0]} (${mainRole[1]} games)`}</li>
             ))}
           </ul>
@@ -25,7 +25,7 @@ const PlayerItem = (props) => {
           <ul>
             {props.topChampions.map((topChampions, i) => (
               <li key={i}>
-                <img src={require(`../UI/ChampIcons/${topChampions[0]}Square.png`)} alt="icon" />
+                <img src={require(`../UI/StaticInputData/ChampIcons/${topChampions[0]}Square.png`)} alt="icon" />
                 {`${topChampions[0]} (${topChampions[1]} games)`}
                 </li>
             ))}
