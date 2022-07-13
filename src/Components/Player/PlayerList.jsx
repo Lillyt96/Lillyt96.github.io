@@ -15,7 +15,7 @@ const PlayerList = (props) => {
              <IconContext.Provider value={{ color: "rgb(255, 255, 255)", size: "30px"}}>
               <RiErrorWarningLine />
             </IconContext.Provider>
-            <p>Note: this player is not part of a clash Team</p>
+            <p>Note: this player is not part of a clash team</p>
           </div>
           )}
           {/* Execute box for opgg link */}

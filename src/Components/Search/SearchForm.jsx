@@ -39,6 +39,11 @@ const SearchForm = (props) => {
     props.onSearch(ExamplePlayerDict);
   };
 
+    // Reset error when the box has been closed
+    const errorChangeHandler = (props) => {
+      setError("");
+    };
+
   // Handles error messages, Makes API call using summonerName and region inputs, and sends results to App.js
   const searchSubmitHandler = async (event) => {
     event.preventDefault();
@@ -92,11 +97,6 @@ const SearchForm = (props) => {
       // Reset summonerName and region states
       setSummonerName("");
       setSelectedRegion("DEFAULT");
-    };
-
-    // Reset error when the box has been closed
-    const errorChangeHandler = (props) => {
-      setError("");
     };
 
 
